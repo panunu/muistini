@@ -1,0 +1,11 @@
+<resources>
+
+    <string name="app_name">Muistini</string>
+    <string name="menu_settings">Settings</string>
+    <string name="title_activity_main">Muistini</string>
+
+     <string name="label_new">Add</string>
+    
+    <string name="hint_new">Write a note</string>
+    
+</resources>
