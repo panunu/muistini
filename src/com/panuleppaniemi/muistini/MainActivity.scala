@@ -2,10 +2,11 @@ package com.panuleppaniemi.muistini
 
 import android.app.ListActivity
 import android.os.Bundle
-import android.view.{Menu, View, Gravity}
+import android.view.{Menu, View}
 import android.view.View.OnClickListener
-import android.widget.{ArrayAdapter, EditText, SimpleCursorAdapter, Toast}
+import android.widget.{ArrayAdapter, EditText, SimpleCursorAdapter}
 import com.panuleppaniemi.muistini.model._
+import com.panuleppaniemi.muistini.helper.Toaster
 
 class MainActivity extends ListActivity {
   
@@ -27,7 +28,6 @@ class MainActivity extends ListActivity {
     findViewById(R.id.button_save).setOnClickListener(new OnClickListener() {
       override def onClick(arg0: View) = {
         // TODO: Test.
-        
         val input = findViewById(R.id.input_text_note).asInstanceOf[EditText]
         val note = service.create(input.getText.toString)
 
@@ -36,10 +36,7 @@ class MainActivity extends ListActivity {
             adapter.changeCursor(service.all)
             adapter.notifyDataSetChanged()
             
-            val toast = Toast.makeText(getApplicationContext(), "Note saved!", Toast.LENGTH_SHORT)
-            toast.setGravity(Gravity.TOP|Gravity.CENTER, 0, 0)
-            toast.show
-            
+            Toaster.toast("Note saved!", getApplicationContext())            
             input.setText("")
           }
           case None => // Fail.
