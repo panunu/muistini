@@ -2,16 +2,10 @@ package com.panuleppaniemi.muistini
 
 import android.app.ListActivity
 import android.os.Bundle
-import android.widget.ArrayAdapter
-import android.view.Menu
-import android.view.View
+import android.view.{Menu, View}
 import android.view.View.OnClickListener
-import android.widget.EditText
-import android.util.Log
-import android.widget.SimpleCursorAdapter
-import com.panuleppaniemi.muistini.model.Service
-import com.panuleppaniemi.muistini.model.Repository
-import com.panuleppaniemi.muistini.model.Note
+import android.widget.{ArrayAdapter, EditText, SimpleCursorAdapter, Toast}
+import com.panuleppaniemi.muistini.model._
 
 class MainActivity extends ListActivity {
   
@@ -40,7 +34,7 @@ class MainActivity extends ListActivity {
           case note: Note => {
             adapter.changeCursor(service.all)
             adapter.notifyDataSetChanged()
-            // Notify and clear input.
+            // Toast.
           }
           case None => // Fail.
         }

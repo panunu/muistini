@@ -1,10 +1,9 @@
 package com.panuleppaniemi.muistini.model
 
 import android.database.Cursor
-import android.content.Context
+import android.content.{Context, ContentValues}
 import android.database.sqlite._
 import android.database.sqlite.SQLiteDatabase.CursorFactory
-import android.content.ContentValues
 
 class Repository(context:Context, name:String, factory:CursorFactory, version:Int) extends SQLiteOpenHelper(context, name, factory, version) {
   
